@@ -8,12 +8,21 @@
   <meta name="Description" content="">
   <title>Document</title>
   <style>
+  *{margin:0px;}
   #flash{
-	width:500px;height:200px;background:red;margin:200px auto;
-	position:relative;
+	width:670px;height:240px;background:red;margin:200px auto;
+	position:relative;overflow:hidden;
   }
   #flash .scroll{width:670px; height:2400px;
-				position:absolute;/*绝对定位*/ left:0px; top:0px;list-style-type:none;}
+				position:absolute;/*绝对定位*/ left:0px; top:0px;}
+  #flash .scroll img{
+	display:block;
+  }
+  .button ul{position:absolute;bottom:10px;right:5px;}
+  .button ul li{float:left;list-style-type:none;width:20px;height:20px;line-height:20px;text-align:center; background:#666;border-radius:10px;margin:0px 2px;box-shadow:2px 2px 5px #000;color:white;}
+  .button ul li.hover{
+	background:red;
+  }
   </style>
  </head>
  <body>
@@ -26,13 +35,34 @@
 		<img src="images/5.jpg" />
 		<img src="images/6.jpg" />
 	</div>
+	<div class="button">
+	<ul>
+		<li class="hover">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	</div>
   </div>
+  <script src="js/jquery.js"></script>
   <script>
-	$("scroll").animate({top:},1000);
+  var _index=0;
+  var setTime=null;
+	$("#flash .button ul li").hover(function(){
+		clearInterval(setTime);
+		_index=$(this).index();
+		$(this).addClass("hover").siblings("li").removeClass("hover");
+		$(".scroll").animate({top:-(_index*240)},1000);
+	},function(){autoPlay();});
 	function autoPlay(){
-		setInterval(function(){},1000);
-		_index++;
-		$("ul.button li")
+		setTime=setInterval(function(){
+			_index++;
+			if(_index>5){_index=0;}
+			$(".button ul li").eq(_index).addClass("hover").siblings("li").removeClass("hover");
+			$(".scroll").animate({top:-(_index*240)},1000);
+		},2000);
 	}
 	autoPlay();
   </script>
