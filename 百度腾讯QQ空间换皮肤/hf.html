@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  *{
+	margin:0px;padding:0px;
+  }
+  body{
+	background:url("images/2.jpg");
+  }
+  a.btn{
+	width:50px;height:50px;background:url("images/upseek.png");display:block;position:fixed;top:0px;right:0px;
+  }
+  a.btn:hover{
+	background-position:0px -64px;
+  }
+  #hf{
+	width:100%;height:120px;background:rgba(0,0,0,0.5);display:none;/*隐藏*/
+  }
+  #Con{
+	margin:0px auto;width:705px;height:120px;position:relative;
+  }
+  #hf #Con img.dir1{
+	position:absolute;left:0px;top:45px;
+  }
+  #hf #Con img.dir2{
+	position:absolute;right:0px;top:45px;
+  }
+  #hf #Con .scroll{
+	width:658px;height:120px;margin:0px auto;position:relative;overflow:hidden;
+  }
+  #hf #Con .scroll .scrollCon{
+	width:1000%;height:120px;position:absolute;left:0px;top:0px;
+  }
+ .scroll .scrollCon ul li{
+	list-style-type:none;width:138px;height:75px;border:2px solid white;float:left;
+	margin:10px;
+  }
+  ul li img{width:138px;height:75px;}
+  </style>
+ </head>
+ <!-- 
+background: url("")
+利用<a>标签
+相对定位用relative从而将其作为参考对象，绝对定位就将其作为参考进行移动
+滚动的图片相当于一个无限大的盒子，只是超出的范围被隐藏了
+ -->
+ <body>
+  <a href="#" class="btn"></a>
+  <div id="hf">
+	<div id="Con">
+		<img src="images/dirl.png" class="dir1"/>
+		<img src="images/dirr.png" class="dir2"/>
+		<div class="scroll">
+			<div class="scrollCon">
+				<ul>
+					<li><img src="images/1-1.jpg" /></li>
+					<li><img src="images/2-2.jpg" /></li>
+					<li><img src="images/3-3.jpg" /></li>
+					<li><img src="images/4-4.jpg" /></li>
+					<li><img src="images/5-5.jpg" /></li>
+					<li><img src="images/6-6.jpg" /></li>
+					<li><img src="images/7-7.jpg" /></li>
+					<li><img src="images/8-8.jpg" /></li>
+					<li><img src="images/9-9.jpg" /></li>
+					<li><img src="images/10-10.jpg" /></li>
+					<li><img src="images/11-11.jpg" /></li>
+					<li><img src="images/12-12.jpg" /></li>
+					<li><img src="images/13-13.jpg" /></li>
+					<li><img src="images/14-14.jpg" /></li>
+					<li><img src="images/15-15.jpg" /></li>
+					<li><img src="images/16-16.jpg" /></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+  </div>
+  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+		$(".btn").click(function(){
+			$("#hf").slideToggle("slow");
+		});
+		$("ul li").click(function(){
+			var simg=$(this).find("img").attr("src");
+			var bimg=simg.replace(/-\d*/,"");
+			$("body").css("background","url("+bimg+")");
+		});
+		var click_num=0;
+		$("img.dir1").click(function(){
+			click_num++;
+			if(click_num>2){click_num=0;}
+			$(".scrollCon").animate({left:click_num*(-664)},300);
+		});
+		$("img.dir2").click(function(){
+			click_num--;
+			if(click_num<0){click_num=2;}
+			$(".scrollCon").animate({left:click_num*(-664)},300);
+		});
+	</script>
+ </body>
+</html>

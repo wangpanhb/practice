@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  #flash{
+	width:500px;height:200px;background:red;margin:200px auto;
+	position:relative;
+  }
+  #flash .scroll{width:670px; height:2400px;
+				position:absolute;/*绝对定位*/ left:0px; top:0px;list-style-type:none;}
+  </style>
+ </head>
+ <body>
+  <div id="flash">
+	<div class="scroll">
+	<img src="images/1.jpg" />
+		<img src="images/2.jpg" />
+		<img src="images/3.jpg" />
+		<img src="images/4.jpg" />
+		<img src="images/5.jpg" />
+		<img src="images/6.jpg" />
+	</div>
+  </div>
+  <script>
+	$("scroll").animate({top:},1000);
+	function autoPlay(){
+		setInterval(function(){},1000);
+		_index++;
+		$("ul.button li")
+	}
+	autoPlay();
+  </script>
+ </body>
+</html>

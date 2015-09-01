@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="关键词一，关键词二">
+  <meta name="Description" content="网站描述内容">
+  <title>Document</title>
+  <!--css js 文件的引入-->
+  <style type="text/css">
+  *{margin:0px; padding:0px;}
+	body{background:url("images/1.jpg");}
+	a{width:50px; height:50px; display:block; position:fixed; top:0px; right:0px;
+		background:url("images/upseek.png"); z-index:33;}
+	a:hover{background-position:0px -64px;}
+
+	#huanfu{width:100%; height:120px; background:rgba(0,0,0,0.5); box-shadow:0px 0px 5px #ddd;
+			position:absolute; left:0px; top:0px; display:none;}
+	#imgList {width:664px;height:105px; margin:0px auto; position:relative; 
+				}
+	#imgList img.dirl{position:absolute; left:-20px; top:40px;}
+	#imgList img.dirr{position:absolute; right:-20px; top:40px;}
+
+	#imgList .scrollCon{width:664px;height:105px;overflow:hidden; position:relative;}
+	#imgList .scroll{position:absolute; width:1000%; height:105px;}
+	#huanfu ul li{list-style-type:none; float:left; border:4px solid #fff; margin:10px;}
+	
+	
+  </style>
+ </head>
+ <body>
+
+  <!--按扭开始-->
+  <a href="#" class="but"></a>
+  <!--按扭结束-->
+
+ <div id="huanfu">
+	<div id="imgList">
+		<img src="images/dirl.png" class="dirl"/>
+		<img src="images/dirr.png" class="dirr"/>
+		<div class="scrollCon">
+			<div class="scroll">
+				<ul>
+					<li><img src="images/1-1.jpg" width="138" height="75"/></li>
+					<li><img src="images/2-2.jpg" width="138" height="75"/></li>
+					<li><img src="images/3-3.jpg" width="138" height="75"/></li>
+					<li><img src="images/4-4.jpg" width="138" height="75"/></li>
+					<li><img src="images/5-5.jpg" width="138" height="75"/></li>
+					<li><img src="images/6-6.jpg" width="138" height="75"/></li>
+					<li><img src="images/1-1.jpg" width="138" height="75"/></li>
+					<li><img src="images/2-2.jpg" width="138" height="75"/></li>
+					<li><img src="images/3-3.jpg" width="138" height="75"/></li>
+					<li><img src="images/4-4.jpg" width="138" height="75"/></li>
+					<li><img src="images/5-5.jpg" width="138" height="75"/></li>
+					<li><img src="images/6-6.jpg" width="138" height="75"/></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+ </div>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$("a.but").click(function(){
+		$("#huanfu").slideToggle("slow");
+	});
+
+	$("#imgList ul li").click(function(){
+		var simg=$(this).find("img").attr("src");
+		var bimg=simg.replace(/-\d*/,"");
+		$("body").css({"background":"url("+bimg+")"})
+	});
+
+	var click_num=0
+	$("img.dirl").click(function(){
+		click_num++;
+		if(click_num>2){click_num=0;}
+		$(".scroll").animate({left:"-"+664*click_num},500);
+	});
+
+	$("img.dirr").click(function(){
+		click_num--;
+		if(click_num<0){click_num=2;}
+		$(".scroll").animate({left:"-"+664*click_num},500);	
+	});
+
+</script>
+
+ </body>
+</html>
