@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="关键词一，关键词二">
+  <meta name="Description" content="网站描述内容">
+  <title>Document</title>
+  <!--引用css js 文件的引入-->
+  <style type="text/css">
+  *{margin:0px;padding:0px;}
+  /*css样式的表达方式：属性：值；身高：1.7m; 颜色：红色；px像素*/
+	#QQ{/*width:200px;宽*/ width:40px;height:250px;/*高*/background:#00cc00;/*背景颜色*/
+		position:fixed;/*固定定位*/ right:0px; top:250px; overflow:hidden;/*超出内容隐藏*/
+		border-radius:5px 0px 0px 5px;/*最新技术css3制作圆角*/}
+	#QQ .but{width:40px; height:250px;float:left;/*左浮动*/
+			background:url("images/but_bg.png") no-repeat left center;/*right center*/}
+	#QQ .QQ_con{width:150px; height:230px;background:#fff;float:right;/*右浮动*/				margin:10px 10px 0px 0px; border-radius:5px;}
+	#QQ .QQ_con h3{font-size:14px; font-family:"微软雅黑"; height:40px;							text-align:center; line-height:40px;}
+	#QQ .QQ_con ul{padding:0px 5px;}
+	#QQ .QQ_con ul li{height:36px;border-bottom:1px solid #ddd;/*粗细 风格 颜色*/list-style-type:none;/*去掉圆点*/font-size:12px;line-height:36px; }
+	#QQ .QQ_con ul li.last{text-align:center;border:0px;}
+  </style>
+ </head>
+
+ <body>
+<!--div 盒子模型，高度，宽度，放内容的长方形容器 姓名=“张三”-->
+<div id="QQ">
+	<div class="but"></div>
+
+	<div class="QQ_con">
+		<h3>潭州学院在线客服</h3>
+		<ul>
+			<li>售后客服：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=783733618&amp;site=qq&amp;menu=yes" target="_blank"><img src="images/qq.png" align="absmiddle"/></a></li>
+			<li>VIp报名：&nbsp;<img src="images/qq.png" align="absmiddle"/></li>
+			<li>技术顾问：<img src="images/qq.png" align="absmiddle"/></li>
+			<li>清心总监：<img src="images/qq.png" align="absmiddle"/></li>
+			<li class="last">电话：400-009-6359</li>
+		</ul>
+	</div>
+</div>
+<!--引用外部jquery 类库文件 -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	var mark=1;
+	$("#QQ .but").click(function(){
+		//alert("sss");//弹窗
+		if(mark==1){//把他展开
+			$("#QQ").animate({width:"200px"},300);
+			//$(this).css("background","url('images/but_bg.png') no-repeat right center");
+			$(this).css("background-position","right center");
+			mark=2;
+		}else if(mark==2){//收缩
+			$("#QQ").animate({width:"40px"},300);
+			$(this).css("background-position","left center");
+			mark=1;
+		}
+	});
+</script>
+
+
+
+<!--
+	1、在页面当构建了一个有宽度，高度的长方形（div 盒子模型）
+	2、讲到了外边距的概念margin ,解决了外边距的兼容型问题 *｛margin:0px;｝
+	3、利用固定定位来控制长方形的位置，position:fixed;right(与浏览器右边的距离)
+		top(与浏览器头部的距离)
+	4、在大的长方形（#QQ）构建两个小的长方形，同时在水平显示，一个左				（float:left;），一个右(float:right;)
+	5、如何给在页面当中插入一张背景图片 background:url("地址") no-repeat right center
+	6、利用外边距来设置长方形#QQ_con 他的位置（margin:上 右 下 左;）
+	7、利用h3标签制作标题(文字大小，类型，水平距，竖直距中)
+	8、讲到了UL无序列表标签（讲到内边距的概念padding,同时解决内边距的不兼容型）
+	9、如何在页面当中插入一张图片 <img src="地址" />
+
+-->
+
+
+
+
+
+<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666<br/>2222222222<br/>333333333333<br/>4444444444444<br/>444455555555<br/>
+55555555556666
+ </body>
+</html>
