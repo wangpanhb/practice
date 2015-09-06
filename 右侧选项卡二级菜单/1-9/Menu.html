@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="关键词一，关键词二">
+  <meta name="Description" content="网站描述内容">
+  <title>Document</title>
+  <!--引用css js 文件的引入-->
+  <style type="text/css">
+  *{margin:0px;padding:0px;}
+  /*css样式的表达方式： 属性：值；身体：1.7m; 颜色：红色; px像素*/
+	#Select_Menu{width:990px;/*宽*/ height:270px;/*高*/ /*background:#00ff66;背景颜色*/
+				margin:50px auto 0px; box-shadow:0px 0px 15px #000; padding:15px;}
+	#Select_Menu #Nav{width:740px; height:270px; background:#ff0099; float:left;/*左浮动*/}
+	#Select_Menu #Select{width:230px; height:270px; background:#999933; float:right;/*右浮动*/}
+	#Select_Menu #Select ul li{width:230px; height:45px; border-bottom:1px dotted #dedcda;/*粗细 风格 颜色 边框线*/
+					list-style-type:none;/*去掉圆点*/ font-size:14px; font-family:"微软雅黑";
+					text-align:center;/*水平距中*/ line-height:45px; background:#faf9f6; position:relative;/*相对定位*/}
+	#Select_Menu #Select ul li a{color:#000;text-decoration:none;/*去掉下划线*/  display:block;/*块级*/}
+	/*jquery 来实现*/
+	#Select_Menu #Select ul li.hover a{background:#fb88af; color:#fff;}
+	#Select_Menu #Select ul li img{position:absolute;/*绝对定位*/ top:20px; left:-8px; display:none;}
+	#Select_Menu #Select ul li.hover img{display:block;/*显示*/}
+
+	#Select_Menu #Nav .Menu{width:740px; height:270px;  display:none;/*隐藏*/}
+  </style>
+ </head>
+
+ <body>
+ <!--div盒子模型，高度，宽度，放内容的长方形容器 姓名=“张三”-->
+  <div id="Select_Menu">
+	<div id="Nav">
+		<div class="Menu" style="display:block;"><img src="images/menu1.png" /></div>
+		<div class="Menu">1面部护理</div>
+		<div class="Menu">2彩妆香氛</div>
+		<div class="Menu">3身体护理</div>
+		<div class="Menu">4服饰/内衣</div>
+		<div class="Menu">5鞋包/配饰</div>
+	</div>
+
+	<!--选项卡开始-->
+	<div id="Select">
+		<ul>
+			<li class="hover"> <img src="images/dot_sj.jpg"/> <a href="#">0居家/母婴</a></li>
+			<li> <img src="images/dot_sj.jpg"/> <a href="#">1面部护理</a></li>
+			<li> <img src="images/dot_sj.jpg"/><a href="#">2彩妆香氛</a></li>
+			<li><img src="images/dot_sj.jpg"/><a href="#">3身体护理</a></li>
+			<li><img src="images/dot_sj.jpg"/><a href="#">4服饰/内衣</a></li>
+			<li><img src="images/dot_sj.jpg"/><a href="#">5鞋包/配饰</a></li>
+		</ul>
+	</div>
+	<!--选项卡结束-->
+  </div>
+
+
+
+<!--引用外部jqｕｅｒｙ类库-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$("#Select ul li").mouseover(function(){
+		var _index=$(this).index();//获取序列号
+		$(this).addClass("hover").siblings().removeClass("hover");// 添加class="hover"
+		$("#Nav .Menu").eq(_index).show().siblings().hide();
+	});
+</script>
+
+
+
+
+
+<!--
+	1、如何在页面当中构建一个有宽度，高度的长方形（div盒子模型）
+	2、讲到了外边距的概念 margin ,解决了外边距的兼容型问题 *｛margin:0px;｝
+	3、如何控制长方形的位置，利用外边距来解决 margin:上(50px)  左右(auto)  下(0px);
+	4、利用最新技术 html5+css3 制作阴影效果  box-shadow：水平偏移量  竖直偏移量 半径 颜色;
+	5、在大长方形里面，构建两个小的长方形，然后设置他们同时水平方向，一个在左边（float:left;），一个在右边（float:right;）
+	6、讲到了内边距的概念 padding , padding:15px (上下左右四个方向的内边距都是１５px)　，加了内边距之后，他的高度会变高，宽度会变宽（宽度－１５＊２）　（高宽－１５＊２）
+	7、讲到了Ul无序列表标签，<ul>
+								<li></li>
+								<li></li>
+							  </ul>
+	8、要给我们每个 li添加宽度和高度（去掉前面的圆点 list-style-type:none ,去掉 ul默认自带的内边距）
+	9、控制li里面文字的样式　（文字大小，文字类型，水平距中，竖直距中）
+	10、如何给页面当中的元素添加边框线  border:粗细(1px) 风格(dotted点状) 颜色（#dedcda灰色）; border-bottom（低边框线）
+	11、讲到了 a标签  <a href="地址">  内容</a>  {加了a标签文字颜色默认改变，去掉下划线, 要使a的宽度和高度与li一样大，加上		display:block;}
+	12、如何把图片插入到我们页面当中，<img src="地址" />
+
+-->
+ </body>
+
+</html>

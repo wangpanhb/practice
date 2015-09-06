@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="关键词一，关键词二">
+  <meta name="Description" content="网站描述内容">
+  <title>Document</title>
+  <!--引用css js 文件的引入-->
+	<style type="text/css">
+	*{margin:0px; padding:0px;}
+	/*css样式的表达方式：属性：值; 身高:1.7m; 颜色:红色; px像素*/
+	#Logo{width:100%;/*宽*/ height:74px;/*高*/ /*background:#996699;背景颜色*/ margin-top:100px;
+		  border-top:1px solid #ddd; border-bottom:1px solid #ddd;/*粗细 风格 颜色*/}
+	#Logo ul{width:1020px; height:74px; margin:0px auto;/*水平距中*/}
+	#Logo ul li{width:140px; height:54px; list-style-type:none;/*去掉圆点*/
+				float:left;/*左浮动*/ font-size:14px; font-family:"微软雅黑"; text-align:center;/*文字水平距中*/ padding-top:20px; background:url("images/bg1.png") no-repeat right center;
+				position:relative;/*相对定位，参考对像*/}
+	#Logo ul li span{color:#666; display:block;/*块级元素*/ font-size:12px;}
+	#Logo ul li a{color:#000;text-decoration:none;/*去掉下划线*/}
+	#Logo ul li.hover{background:#B80909;}
+	#Logo ul li.hover a{color:#fff;}
+	#Logo ul li.hover a span{color:#fff;}
+	#Logo ul li .Menu{/*width:400px; height:140px;*/ border:1px solid #ddd; position:absolute;/*绝对定位元素*/
+						top:74px; left:0px; display:none;/*隐藏*/}
+	</style>
+ </head>
+
+ <body>
+<!--div 盒子模型，高度，宽度，放内容的长方形容器 姓名=“代码女神”-->	
+<div id="Logo">
+	<ul>
+		<li class="hover"><a href="#">首页<span>HOME</span></a></li>
+		<li><a href="#">关于良友<span>ABOUT US</span></a></li>
+
+		<li><a href="#">良友商学院<span>BUSINESS SCHOOL</span></a>
+			<div class="Menu"><img src="images/1.png" /></div>
+		</li>
+
+		<li ><a href="#">花艺集锦<span>COLLECTION</span></a>
+			<div class="Menu"><img src="images/2.png" /></div>
+		</li>
+		<li><a href="#">良友花语<span>FLORID</span></a>
+			<div class="Menu"><img src="images/3.png" /></div>
+		</li>
+		<li><a href="#">人力资源<span>HUMAN</span></a></li>
+		<li><a href="#">联系我们<span>CONTACT US</span></a></li>
+
+	</ul>
+</div>
+<!--引用外部 jquery　文件-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$("#Logo ul li").hover(function(){
+		//鼠标滑上去的时候
+		$(this).addClass("hover").siblings().removeClass("hover");// 添加 class="hover"
+		$(this).find(".Menu").slideDown();//查找到 li下面的  .Menu 并显示出来
+
+	},function(){
+		$(this).find(".Menu").slideUp();//向上收缩
+		$(this).removeClass("hover")
+	});
+</script>
+
+
+
+
+<!--
+	1、在页面当中，构建一个有宽度，高度的长方形（div盒子模型）<div id="Logo"></div>
+	2、讲到了外边距的概念 margin,解决了外边距的兼容型问题，利用上外边距把长方形移动到下面来（margin-top）
+	3、如何给页面当中的元素添加边框线 border:粗细 风格 颜色; border-top(上边框线)，border-bottom(下边框线)
+	4、讲到ul无序列表标签（去掉li前面的圆点 list-style-type:none; 给li添加宽度和高度，左浮动的概念-(使		竖直方向的内容，变成水平方向，并且向左靠)）
+	5、给ul 添加宽度和高度，并且利用外边距，设置ul 在水平方向距中显示  margin:上下(0px) 左右(auto);
+	6、控制文字样式（大小，颜色，字体类型，文字水平距中）， 单独控制英文字体的样式（单独加上span标签，给span加上 display:block;使文字换行）
+	7、如何给页面当中的元素添加背景图片 background:url("地址") no-repeat(背景图片不重复) right center 控制背景图片位置);
+	8、讲到a标签的概念 <a href="网址">内容</a> （当加了a标签的时候，我们重新定义文字颜色，去掉下划线）
+	9、如何单独控制某个 li的样式，给他单独添加背景颜色（给li单独加上样式名  class="hover"单独对他操作）
+	10、
+
+-->
+ </body>
+</html>
