@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  *{margin:0px;padding:0px;}
+	#flash{
+		height:270px;width:1132px;background:white;margin:100px auto 0px;box-shadow:0px 0px 10px black;
+		padding:10px 0px 0px 10px;
+	}
+	#flash .Con{
+		width:1122px;height:260px;background:#99ff33;
+	}
+	#flash .Con ul li{
+		width:50px;height:260px;float:left;list-style-type:none;border:1px solid black;
+	}
+	#flash .Con ul li.last{
+		width:962px;height:260px;background:blue;
+	}
+	#flash h3{
+		width:20px;height:240px;background:#ef4300;color:#fff;padding:20px 15px 0px 15px;
+		text-align:center;font-family:"微软雅黑";font-weight:100;font-size:16px;
+	}
+  </style>
+ </head>
+ <body>
+  <div id="flash">
+		<div class="Con">
+			<ul>
+				<li>11</li>
+				<li>11</li>
+				<li>11</li>
+				<li class="last">
+					<h3>语言学习</h3>
+				</li>
+			</ul>
+		</div>
+  </div>
+ </body>
+</html>

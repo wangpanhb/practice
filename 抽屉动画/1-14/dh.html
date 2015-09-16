@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="关键词一，关键词二">
+  <meta name="Description" content="网站描述内容">
+  <title>Document</title>
+  <!--引用css js 文件的引入-->
+<style type="text/css">
+*{margin:0px;padding:0px;}
+/*css样式的表达方式： 属性：值；身高:1.7m; 颜色：红色; px像素*/
+#flash{width:1132px;/*宽*/ height:270px;/*高*/ /*background:#cc6699;背景颜色*/
+		margin:100px auto 0px; box-shadow:0px 0px 10px #000; padding:10px 0px 0px 10px;}
+#flash .Con{width:1122px; height:260px; background:#cccc66;}
+#flash .Con ul li{width:50px; height:260px;position:relative;
+					list-style-type:none;/*去掉圆点*/ float:left;/*左浮动*/
+					overflow:hidden;}
+#flash .Con ul li h3{width:20px; height:240px;background:#ef4300; color:#fff; padding:20px 15px 0px 15px; text-align:center;font-family:"微软雅黑";font-size:16px;
+				}
+#flash .Con ul li .Course{width:920px; height:210px; background:#00cc00; position:absolute;/*绝对定位*/ left:50px; top:23px;}
+
+#flash .Con ul li h3.bg1{background:#e97e52;}
+#flash .Con ul li h3.bg2{background:#0674f0;}
+#flash .Con ul li h3.bg3{background:#17a67b;}
+#flash .Con ul li h3.bg4{background:#ef4300;}
+</style>
+ </head>
+
+ <body>
+<!--div盒子模型，高，宽，放内容的长方形容器 姓名=“张三”-->
+	<div id="flash">
+		<div class="Con">
+			<ul>
+				<li   style="width:970px">
+					<h3 class="bg1">IT培训</h3>
+					<div class="Course">11111</div>
+				</li>
+				<li>
+					<h3 class="bg2">职业技能</h3>
+					<div class="Course"></div>
+				</li>
+				<li>
+					<h3 class="bg3">语言学习</h3>
+					<div class="Course"></div>
+				</li>
+				<li>
+					<h3 class="bg4">语言学习</h3>
+					<div class="Course"></div>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+<!--引用jquery类库-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(".Con ul li").mouseover(function(){
+		$(this).animate({width:"970px"},300).siblings().animate({width:"50px"},300);
+	});
+</script>
+
+<!--
+
+1、如何在页面当中，构建一个有宽，高度的长方形（div盒子模型）<div id="flash"></div>
+2、讲到了外边距的概念 margin,同时解决了外边距的兼容问题 *｛margin:0px;｝
+3、利用外边距来控制长方形位置 margin:上(100px) 左右(auto) 下(0px);
+4、如何利用最新技术html5+css3制作阴影效果 box-shadow:水平偏移量  竖直偏移量 半径 颜色;
+5、在大的长方形里面构建一个小的长方形，然手利用内边距 padding给他们之间添加空隙（高度-10px 宽度-10px）
+6、讲到 ul无序列表标签 <ul>
+							<li>1111</li>
+							<li>22222</li>
+						</ul>
+7、要给每个lｉ添加宽度和高度，然后利用左浮动float:left，设置在水平显示往左边靠
+8、单独控制最后一个li宽度，然后在这个li 利用 h3标签来制标题（文字大小，字体类型，颜色，		利用内边距让文字竖直显示）
+
+-->
+ </body>
+
+</html>
