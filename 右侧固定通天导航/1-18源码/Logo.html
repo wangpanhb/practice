@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!--网站编码格式，UTF-8 国际编码，GBK或 gb2312 中文编码-->
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="关键词一，关键词二">
+  <meta name="Description" content="网站描述内容">
+  <title>Document</title>
+  <!--引用css js 文件的引入-->
+<style type="text/css">
+*{padding:0px; margin:0px;}
+img{display:block;}
+/*css表达方式： 属性：值; 宽度：300m; px 像素*/
+#Nav{width:35px;/*宽*/ height:100%;/*高*/ background:#000;/*背景颜色*/
+	position:fixed;/*固定定位*/ right:100px; top:0px;}
+#Nav .top{width:35px; height:150px; background:#d8002d; padding-top:70px;						position:relative;/*相对定位*/}
+#Nav .middle{width:35px; height:310px; }
+#Nav .bottom{width:35px; height:110px; position:absolute;/*绝对定位*/           right:0px; bottom:0px;}
+#Nav .top img.email{position:absolute;right:0px; bottom:0px;}
+#Nav ul li{list-style-type:none;/*去掉圆点*/ font-family:"微软雅黑";
+					width:35px;  font-size:12px; color:#fff;
+					text-align:center; position:relative;}
+#Nav  ul li span{width:90px; height:35px; background:#aaaaaa; display:block;
+						line-height:35px; position:absolute; top:0px;
+						left:-120px; opacity:0;/*left:-90px; opacity:1;*/ }
+#Nav ul li span font{color:#aaaaaa;font-size:16px; font-family:"宋体";
+					position:absolute; right:-8px;top:1px;}
+#Nav ul li.go{border-top:1px solid #aaa;/*粗细 风格 颜色*/
+					border-bottom:1px solid #aaa; padding-bottom:5px;}
+#Nav ul li.hover{background:#ff0066;}
+
+</style>
+ </head>
+
+ <body>
+<!--div盒子模型，高度，宽度，放内容的长方形容器 姓名="清心"-->
+<div id="Nav">
+
+	<!--上开始-->
+	<div class="top">
+		<img src="images/nhj.png"/>
+		<img src="images/email.gif" class="email"/>
+	</div>
+	<!--上结束-->
+
+	<!--中间开始-->
+	<div class="middle">
+		<ul>
+			<li><img src="images/logo.png" />
+				<span>我的特权<font>◆</font></span>
+			</li>
+
+
+			<li class="go"><img src="images/go.png" />购<br/>物<br/>车</li>
+
+			<li><img src="images/money.png" />
+				<span>我的资产<font>◆</font></span>
+			</li>
+			<li><img src="images/xin.png" />
+				<span>我关注的品牌<font>◆</font></span>
+			</li>
+			<li><img src="images/start.png" />
+				<span>我的收藏<font>◆</font></span>
+			</li>
+			<li><img src="images/see.png" />
+				<span>我看过的<font>◆</font></span>
+			</li>
+		</ul>
+	</div>
+	<!--中间结束-->
+
+	<!--下面开始-->
+	<div class="bottom">
+		<ul>
+			<li><img src="images/xin.png" />
+				<span>我关注的品牌<font>◆</font></span>
+			</li>
+			<li><img src="images/start.png" />
+				<span>我的收藏<font>◆</font></span>
+			</li>
+			<li><img src="images/see.png" />
+				<span>我看过的<font>◆</font></span>
+			</li>
+		</ul>
+	</div>
+	<!--下面结束-->
+</div>
+
+<!--引用外部 jqeury　类库-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$("#Nav ul li").hover(function(){
+		if($(this).hasClass("go")){
+			$(this).find("img").attr("src","images/go2.png");
+		} 
+		$(this).addClass("hover"); // class="hover"
+		$(this).find("span").stop().animate({left:"-90px",opacity:1},500);
+	},function(){
+		if($(this).hasClass("go")){
+			$(this).find("img").attr("src","images/go.png");
+		} 
+		$(this).removeClass("hover");  //移除 class='hover'
+		$(this).find("span").stop().animate({left:"-120px",opacity:0},500);
+	});
+</script>
+
+
+
+
+
+<!--
+	1、如何在页面当中，构建一个有宽度，有高度的长方形容器（div盒子模型）
+	2、讲到了固定定位（position:fixed）(right  top )，直接写在body下面的div，如果单独给 他加上　height:100%; 他是不会生效，只有加上固定定位后就可以生效
+	3、在大的长方形里面，构建三个小的长方形（上，中，下）
+	4、利用绝对定位，把bottom 定在最下面的位置
+	5、如何在页面当中，插入一张图片　<img src="地址" />
+	6、讲到了内边距的概念 (padding),利用内边距移动图片的位置
+	7、介绍了什么是　ul标签（ul自带的左内边距和上外边距的清空方法 ，解决了内边距和外边距兼容的问题 *{margin:0px; padding:0px;}）;
+	8、给每个li里面插入了一张图片 （购物车-（文字颜色，字体大小，字类型，水平距中））
+-->
+ </body>
+</html>

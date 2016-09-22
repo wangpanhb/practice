@@ -17,17 +17,29 @@
 		width:1122px;height:260px;background:#99ff33;
 	}
 	#flash .Con ul li{
-		width:50px;height:260px;float:left;list-style-type:none;border:1px solid black;
+		width:50px;height:260px;float:left;list-style-type:none;overflow:hidden;
 	}
-	#flash .Con ul li.last{
-		width:962px;height:260px;background:blue;
+	#flash .Con ul li{
+		height:260px;position:relative;
 	}
 	#flash h3{
 		width:20px;height:240px;background:#ef4300;color:#fff;padding:20px 15px 0px 15px;
 		text-align:center;font-family:"微软雅黑";font-weight:100;font-size:16px;
 	}
 	#flash .Con ul li .course{
-		
+		width:920px;height:210px;background:#00cc00;position:absolute;left:50px;top:23px;
+	}
+	#flash h3.bg1{
+		background:#e97e52;
+	}
+	#flash h3.bg2{
+		background:#0674f0;
+	}
+	#flash h3.bg3{
+		background:#17a67b;
+	}
+	#flash h3.bg2{
+		background:#ef4300;
 	}
   </style>
  </head>
@@ -35,15 +47,30 @@
   <div id="flash">
 		<div class="Con">
 			<ul>
-				<li>11</li>
-				<li>11</li>
-				<li>11</li>
-				<li class="last">
-					<h3>语言学习</h3>
+                <li style="width:970px">
+					<h3 class="bg1">IT培训</h3>
+					<div class="course"></div>
+				</li>
+				<li>
+					<h3 class="bg2">职业技能</h3>
+					<div class="course"></div>
+				</li>
+				<li>
+					<h3 class="bg3">语言学习</h3>
+					<div class="course"></div>
+				</li>
+				<li>
+					<h3 class="bg4">语言学习</h3>
 					<div class="course"></div>
 				</li>
 			</ul>
 		</div>
   </div>
+  <script src="js/jquery.js"></script>
+  <script>
+	$("#flash .Con ul li").mouseover(function(){
+		$(this).animate({width:"970px"},300).siblings().animate({width:"50px"},300);
+	});
+  </script>
  </body>
 </html>
